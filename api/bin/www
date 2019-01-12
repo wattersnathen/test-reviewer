@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+(async () => {
+    const app = require('../src/app')
+    const Mongo = require('../src/mongo')
+
+    const port = Number(process.env.PORT) || 3000
+    const mongo = new Mongo()
+    await mongo.connect()
+
+    app.locals.db = mongo.getDb()
+
+    app.listen(port, () => console.log(`server listening on port ${port}`))
+})()

@@ -1,0 +1,20 @@
+{
+  "name": "test_reporter_api",
+  "version": "1.0.0",
+  "description": "RESTful web api powering the backend functionality for the test reporter",
+  "main": "app.js",
+  "scripts": {
+    "start": "NODE_ENV=production node ./bin/www || set NODE_ENV=production && node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
