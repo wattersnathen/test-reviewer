@@ -1,9 +1,9 @@
 const BaseError = require('./base.error')
 
-class IllegalAccessError extends BaseError {
+class InvalidArgumentError extends BaseError {
     constructor(message) {
         super(message)
     }
 }
 
-module.exports = IllegalAccessError
+module.exports = InvalidArgumentError

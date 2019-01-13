@@ -4,7 +4,7 @@ const { IllegalAccessError } = require('../../errors')
 class Mongo {
     constructor(opts = {
         uri: process.env.MONGO_URI || 'mongodb://localhost:27017',
-        database: process.env.MONGO_DATABASE || 'test-reporter'
+        database: process.env.MONGO_DATABASE || 'qa'
     }) {
         this.uri = opts.uri
         this.database = opts.database

@@ -25,6 +25,12 @@ exports.getTest = async (db, id, opts) => {
     ).toArray()
 }
 
+exports.getFieldValue = async (db, field) => {
+    return db.collection(COLLECTION).distinct(field)
+}
+
 exports.insertTest = async (db, data, options) => {
-    return db.collection(COLLECTION).insertMany(data, { ...options, ordered: false })
+    return db.collection(COLLECTION).insertMany(
+        data,
+        { ...options, ordered: false })
 }
