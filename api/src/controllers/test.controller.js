@@ -1,5 +1,4 @@
 const { TestModel, TestResultFilter } = require('../models')
-const { isValidState } = require('../../lib/test.states')
 
 exports.getNumberOfTests = async (req, res) => {
     const data = await TestModel.getCount(req.app.locals.db, {})
@@ -13,17 +12,11 @@ exports.getTests = async (req, res) => {
 
 exports.getTest = async (req, res) => {
     const { id } = req.params
-    let data
-    if (!req.query || Object.keys(req.query).length === 0) {
-        data = await TestModel.getTest(req.app.locals.db, id, {})
-        return res.json({ data })
-    }
     const testResultFilter = new TestResultFilter(req.query)
     const query = testResultFilter
         .filterByState()
         .getQuery()
-    console.log('query', query)
-    data = await TestModel.getTest(req.app.locals.db, id, { query })
+    const data = await TestModel.getTest(req.app.locals.db, id, { query })
     return res.json({ data })
 }
 
